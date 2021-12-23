@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  testtest
+  <canvas id="oscilloscope"></canvas>
+  <audio id="recordedAudio"></audio>
+
+  <h3>Record video from webcam and transcode to mp4 (x264) and play!</h3>
+  <div>
+    <video id="webcam" width="320px" height="180px"></video>
+    <video id="output-video" width="320px" height="180px" controls></video>
+  </div>
+  <button id="record" disabled>Start Recording</button>
+  <p id="message"></p>
+  <script src="/dist/audio.js"></script>
+</body>
+</html>
