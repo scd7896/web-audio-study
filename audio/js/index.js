@@ -1,21 +1,21 @@
-import { createFFmpeg, fetchFile, createFFmpegCore } from '@ffmpeg/ffmpeg';
+// import { createFFmpeg, fetchFile, createFFmpegCore } from '@ffmpeg/ffmpeg';
 
 async function getMedia(constraints) {
   let stream = null;
-  const ffmpeg = createFFmpeg({ log: true });
+  
 
   try {
+    const audioContext = new AudioContext();
     stream = await navigator.mediaDevices.getUserMedia(constraints);
-    await ffmpeg.load(); 
-    const audioTag = document.createElement("audio");
-
-    audioTag.srcObject = stream;
-    audioTag.play();
-    console.dir(audioTag)
+    const mediaStreamAudioSourceNode = audioContext.createMediaStreamSource(stream)
+    const destinationNode = audioContext.createMediaStreamDestination()
+    console.log(audioContext.destination)
+    
+    
     console.log("helloworld")
     // const audioNode = new MediaStreamAudioDestinationNode(stream.audioNode)
-    // const handles = await window.showSaveFilePicker();
-    // const createWritable = await handles.createWritable();
+    const handles = await window.showSaveFilePicker();
+    const createWritable = await handles.createWritable();
     // const blob = new Blob([], { type: "audio/mpeg-3" })
     
     // await createWritable.write(blob);
